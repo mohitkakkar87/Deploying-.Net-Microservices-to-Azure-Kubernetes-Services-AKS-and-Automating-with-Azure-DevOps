@@ -18,3 +18,5 @@ The entire setup is designed to be cloud-native and resilient.
 •	Database: Azure SQL Database (external to the cluster)
 •	CI/CD: Azure Pipelines (Azure DevOps)
 •	Configuration & Secrets: Kubernetes ConfigMaps & Secrets, Azure Key Vault Provider
+
+<img width="962" height="630" alt="Overall_Architecture" src="https://github.com/user-attachments/assets/ff99b636-9ce5-4020-82de-f41818574fb7" />
