@@ -67,18 +67,18 @@ WORKDIR "/src/MyMicroservice"
 RUN dotnet build "MyMicroservice.csproj" -c Release -o /app/build
 
 # Publish stage
-FROM build AS publish
+      FROM build AS publish
 
-RUN dotnet publish "MyMicroservice.csproj" -c Release -o /app/publish /p:UseAppHost=false
+      RUN dotnet publish "MyMicroservice.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # Final stage
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+     FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 
-WORKDIR /app
+     WORKDIR /app
 
-COPY --from=publish /app/publish .
+     COPY --from=publish /app/publish .
 
-ENTRYPOINT ["dotnet", "MyMicroservice.dll"]
+     ENTRYPOINT ["dotnet", "MyMicroservice.dll"]
 
 **2. Setting up the Azure Infrastructure**
    
