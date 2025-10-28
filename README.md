@@ -43,9 +43,9 @@ Here is a high-level architectural diagram of the final deployment:
 
 <img width="1014" height="1274" alt="High Level diagram" src="https://github.com/user-attachments/assets/d9755fb8-03f2-48b8-82cb-4817ced75d90" />
 
-Step-by-Step Implementation
+**Step-by-Step Implementation**
 
-1. Containerizing the .NET Microservices
+**1. Containerizing the .NET Microservices**
    
 The first step was to create a Dockerfile for each microservice. This ensures a consistent, isolated environment for our applications.
 
@@ -80,7 +80,7 @@ COPY --from=publish /app/publish .
 
 ENTRYPOINT ["dotnet", "MyMicroservice.dll"]
 
-2. Setting up the Azure Infrastructure
+**2. Setting up the Azure Infrastructure**
    
 I used the Azure CLI to provision the necessary resources.
 
@@ -108,7 +108,7 @@ az aks create \
     
     --attach-acr myacrMohit
 
-3. Defining Kubernetes Manifests for Different Environments
+**3. Defining Kubernetes Manifests for Different Environments**
    
 A key part of this project was structuring the Kubernetes manifests to support both local development and cloud deployment.
 
@@ -137,7 +137,7 @@ Example: /aks/product-deployment.yaml (AKS/ACR)
 
 The core of this project is the CI/CD pipeline defined in azure-pipelines.yml. This pipeline is specifically configured to use the manifests from the /aks directory.
 
-Continuous Integration (CI) Stage:
+**Continuous Integration (CI) Stage:**
 
 1.	Trigger: On every push to the main branch.
 
