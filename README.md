@@ -34,7 +34,12 @@ The entire setup is designed to be cloud-native and resilient.
 
 **Overall Picture**
 
-See the overall picture. You can see that we will have 3 microservices which we are going to develop and deploy together.
+See the overall picture. There are 3 microservices develop and deploy together.
 
 
 <img width="962" height="630" alt="Overall_Architecture" src="https://github.com/user-attachments/assets/ff99b636-9ce5-4020-82de-f41818574fb7" />
+
+Here is a high-level architectural diagram of the final deployment:
+
+<img width="1014" height="1274" alt="High Level diagram" src="https://github.com/user-attachments/assets/d9755fb8-03f2-48b8-82cb-4817ced75d90" />
+
