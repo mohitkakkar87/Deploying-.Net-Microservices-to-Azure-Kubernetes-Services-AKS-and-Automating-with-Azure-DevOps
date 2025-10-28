@@ -43,3 +43,30 @@ Here is a high-level architectural diagram of the final deployment:
 
 <img width="1014" height="1274" alt="High Level diagram" src="https://github.com/user-attachments/assets/d9755fb8-03f2-48b8-82cb-4817ced75d90" />
 
+Step-by-Step Implementation
+
+1. Containerizing the .NET Microservices
+2. 
+The first step was to create a Dockerfile for each microservice. This ensures a consistent, isolated environment for our applications.
+
+Example Dockerfile (for a typical .NET API):
+
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY ["MyMicroservice/MyMicroservice.csproj", "MyMicroservice/"]
+RUN dotnet restore "MyMicroservice/MyMicroservice.csproj"
+COPY . .
+WORKDIR "/src/MyMicroservice"
+RUN dotnet build "MyMicroservice.csproj" -c Release -o /app/build
+
+# Publish stage
+FROM build AS publish
+RUN dotnet publish "MyMicroservice.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+# Final stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "MyMicroservice.dll"]
+
