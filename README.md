@@ -4,6 +4,7 @@ This project serves as a practical guide for developers and DevOps enthusiasts l
 
 **Project Overview**
 The application is a simplified e-commerce system built with a microservices architecture, inspired by the AspnetRun design. It consists of several independent services:
+
 •	Product Service: Handles product information.
 •	Order Service: Manages order processing.
 •	Basket Service: Manages user shopping carts.
@@ -11,6 +12,7 @@ The application is a simplified e-commerce system built with a microservices arc
 
 **Architecture & Technology Stack**
 The entire setup is designed to be cloud-native and resilient.
+
 •	Application Framework: .NET 8
 •	Containerization: Docker
 •	Orchestration: Azure Kubernetes Service (AKS)
@@ -18,5 +20,8 @@ The entire setup is designed to be cloud-native and resilient.
 •	Database: Azure SQL Database (external to the cluster)
 •	CI/CD: Azure Pipelines (Azure DevOps)
 •	Configuration & Secrets: Kubernetes ConfigMaps & Secrets, Azure Key Vault Provider
+
+Overall Picture
+See the overall picture. You can see that we will have 3 microservices which we are going to develop and deploy together.
 
 <img width="962" height="630" alt="Overall_Architecture" src="https://github.com/user-attachments/assets/ff99b636-9ce5-4020-82de-f41818574fb7" />
