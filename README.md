@@ -3,6 +3,7 @@ This repository documents my hands-on journey of deploying a .NET microservices-
 This project serves as a practical guide for developers and DevOps enthusiasts looking to understand the end-to-end process of containerizing, orchestrating, and continuously deploying .NET applications.
 
 **Project Overview**
+
 The application is a simplified e-commerce system built with a microservices architecture, inspired by the AspnetRun design. It consists of several independent services:
 
 •	Product Service: Handles product information.
@@ -14,6 +15,7 @@ The application is a simplified e-commerce system built with a microservices arc
 •	API Gateway (Ocelot): A single entry point for routing client requests to the appropriate microservice.
 
 **Architecture & Technology Stack**
+
 The entire setup is designed to be cloud-native and resilient.
 
 •	Application Framework: .NET 8
@@ -30,7 +32,7 @@ The entire setup is designed to be cloud-native and resilient.
 
 •	Configuration & Secrets: Kubernetes ConfigMaps & Secrets, Azure Key Vault Provider
 
-Overall Picture
+**Overall Picture**
 
 See the overall picture. You can see that we will have 3 microservices which we are going to develop and deploy together.
 
