@@ -92,7 +92,8 @@ az group create --name myaks-rg --location eastus
 
 # Create an Azure Container Registry (ACR)
 
-az acr create --resource-group myaks-rg --name myacrMohit --sku Basic
+   az acr create 
+   --resource-group myaks-rg --name myacrMohit --sku Basic
 
 # Create an AKS Cluster, integrating it with ACR for seamless image pulls
 
