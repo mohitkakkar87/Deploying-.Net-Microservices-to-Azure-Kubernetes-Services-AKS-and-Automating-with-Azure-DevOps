@@ -53,20 +53,30 @@ Example Dockerfile (for a typical .NET API):
 
 # Build stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
 WORKDIR /src
+
 COPY ["MyMicroservice/MyMicroservice.csproj", "MyMicroservice/"]
+
 RUN dotnet restore "MyMicroservice/MyMicroservice.csproj"
+
 COPY . .
+
 WORKDIR "/src/MyMicroservice"
+
 RUN dotnet build "MyMicroservice.csproj" -c Release -o /app/build
 
 # Publish stage
 FROM build AS publish
+
 RUN dotnet publish "MyMicroservice.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # Final stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+
 WORKDIR /app
+
 COPY --from=publish /app/publish .
+
 ENTRYPOINT ["dotnet", "MyMicroservice.dll"]
 
