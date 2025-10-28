@@ -52,19 +52,19 @@ The first step was to create a Dockerfile for each microservice. This ensures a 
 Example Dockerfile (for a typical .NET API):
 
 # Build stage
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+      FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
-WORKDIR /src
+      WORKDIR /src
 
-COPY ["MyMicroservice/MyMicroservice.csproj", "MyMicroservice/"]
+      COPY ["MyMicroservice/MyMicroservice.csproj", "MyMicroservice/"]
 
-RUN dotnet restore "MyMicroservice/MyMicroservice.csproj"
+      RUN dotnet restore "MyMicroservice/MyMicroservice.csproj"
 
-COPY . .
+      COPY . .
 
-WORKDIR "/src/MyMicroservice"
+      WORKDIR "/src/MyMicroservice"
 
-RUN dotnet build "MyMicroservice.csproj" -c Release -o /app/build
+      RUN dotnet build "MyMicroservice.csproj" -c Release -o /app/build
 
 # Publish stage
       FROM build AS publish
@@ -88,19 +88,19 @@ Key Commands:
 
 # Create a Resource Group
 
-az group create \
+     az group create \
    
      --name myaks-rg --location eastus
 
 # Create an Azure Container Registry (ACR)
 
-az acr create \
+     az acr create \
    
      --resource-group myaks-rg --name myacrMohit --sku Basic
 
 # Create an AKS Cluster, integrating it with ACR for seamless image pulls
 
-az aks create \
+     az aks create \
 
     --resource-group myaks-rg \
     
